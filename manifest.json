@@ -8,19 +8,19 @@
   "theme_color": "#8b5cf6",
   "icons": [
     {
-      "src": "https://i.postimg.cc/j5fg09JR/Untitled-design.png",
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://i.postimg.cc/j5fg09JR/Untitled-design.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://i.postimg.cc/j5fg09JR/Untitled-design.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
