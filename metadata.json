@@ -1,5 +1,5 @@
 {
   "name": "VOR",
-  "description": "An elegant and modern anime streaming platform interface, designed to surpass the user experience of existing services. It leverages the AniList API for comprehensive anime data and features AI-powered synopses from Gemini.",
+  "description": "An elegant and modern anime streaming platform interface, designed to surpass the user experience of existing services. It leverages the AniList API for comprehensive anime data.",
   "requestFramePermissions": []
 }
