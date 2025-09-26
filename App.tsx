@@ -247,7 +247,7 @@ const App: React.FC = () => {
           <p className="text-red-500">{trendingError}</p>
         </div>
       ) : (
-        <main className="flex-grow pt-16 md:pt-20 pb-24 md:pb-0">
+        <main className="flex-grow">
           {renderPage()}
         </main>
       )}

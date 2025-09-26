@@ -190,6 +190,18 @@
       .ring-theme { --tw-ring-color: var(--theme-color); }
       .group:hover .group-hover-border-theme { border-color: var(--theme-color); }
       .group-hover\:border-theme:hover { border-color: var(--theme-color); }
+      
+      /* Main content padding to clear fixed header/footer */
+      main {
+        padding-top: 4rem; /* h-16 mobile header */
+        padding-bottom: 4rem; /* h-16 mobile footer */
+      }
+      @media (min-width: 768px) {
+        main {
+          padding-top: 5rem; /* h-20 desktop header */
+          padding-bottom: 0;
+        }
+      }
 
       /* PWA Safe Area Handling for iOS */
       @supports (padding-top: env(safe-area-inset-top)) {
@@ -199,19 +211,18 @@
         footer.md\:hidden { /* Targets mobile footer */
           padding-bottom: env(safe-area-inset-bottom);
         }
-        /* Override Tailwind padding on main to account for safe areas */
+        /* Adjust main content padding to account for safe areas */
         main {
-          padding-top: calc(4rem + env(safe-area-inset-top)) !important;
-          padding-bottom: calc(6rem + env(safe-area-inset-bottom)) !important;
+          padding-top: calc(4rem + env(safe-area-inset-top));
+          padding-bottom: calc(4rem + env(safe-area-inset-bottom));
         }
         @media (min-width: 768px) {
           main {
-            padding-top: calc(5rem + env(safe-area-inset-top)) !important;
-            padding-bottom: env(safe-area-inset-bottom) !important;
+            padding-top: calc(5rem + env(safe-area-inset-top));
+            padding-bottom: env(safe-area-inset-bottom);
           }
         }
       }
-
     </style>
   <script type="importmap">
 {
