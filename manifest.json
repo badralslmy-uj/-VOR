@@ -1,0 +1,17 @@
+{
+  "name": "VOR",
+  "short_name": "VOR",
+  "description": "An elegant and modern anime streaming platform interface, designed to surpass the user experience of existing services. It leverages the AniList API for comprehensive anime data and features AI-powered synopses from Gemini.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0B0B0F",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

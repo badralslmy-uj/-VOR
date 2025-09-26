@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VOR - Anime Streaming</title>
+
+    <!-- PWA Manifest & Theme -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#8b5cf6" />
+    
+    <!-- iOS PWA Tags -->
+    <link rel="apple-touch-icon" href="/logo.svg" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="VOR" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --background-color: #0B0B0F;
+        --pane-background: rgba(22, 22, 28, 0.6);
+        --pane-border: rgba(255, 255, 255, 0.1);
+        
+        /* Theming Variables with default purple */
+        --theme-color-rgb: 139, 92, 246;
+        --theme-color: rgb(var(--theme-color-rgb));
+        --theme-color-soft: rgba(var(--theme-color-rgb), 0.7);
+        --theme-color-glow: rgba(var(--theme-color-rgb), 0.5);
+
+        --glow-color: var(--theme-color-glow);
+        --glow-color-soft: var(--theme-color-soft);
+      }
+      html, body {
+        overflow-x: hidden;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--background-color);
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .animate-ken-burns {
+        animation: ken-burns 20s ease-in-out infinite alternate;
+        transform-origin: center center;
+      }
+      @keyframes ken-burns {
+        0% {
+          transform: scale(1) translate(0, 0);
+        }
+        100% {
+          transform: scale(1.08) translate(1%, -1%);
+        }
+      }
+      .text-gradient {
+        background-image: linear-gradient(to top, #d1d5db, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.7s ease-in-out;
+      }
+
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+      .delay-200 { animation-delay: 200ms; }
+      .delay-400 { animation-delay: 400ms; }
+      .delay-600 { animation-delay: 600ms; }
+
+      .card-glow {
+        --card-shadow: 0 8px 20px -8px var(--card-color, rgba(0, 0, 0, 0.7));
+        box-shadow: var(--card-shadow);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        border: 2px solid transparent;
+      }
+      .card-glow:hover {
+        transform: translateY(-8px);
+        --card-shadow-hover: 0 12px 30px -6px var(--card-color, rgba(0,0,0, 0.6));
+        box-shadow: var(--card-shadow-hover), 0 0 20px -5px var(--card-color, var(--glow-color));
+        border-color: var(--card-color, var(--glow-color));
+      }
+      @keyframes pulse-glow {
+        0%, 100% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 10px var(--glow-color-soft)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+        }
+        50% {
+          transform: scale(1.05);
+          filter: drop-shadow(0 0 25px var(--glow-color)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+      }
+      .animate-pulse-glow {
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+
+      .active-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--theme-color);
+        border-radius: 2px;
+        box-shadow: 0 0 8px var(--theme-color);
+        animation: fade-in 0.3s ease;
+      }
+      .interactive-glow-outline {
+        position: relative;
+      }
+      .interactive-glow-outline:hover::before,
+      .interactive-glow-outline:active::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border: 1.5px solid var(--theme-color-soft);
+        border-radius: 10px;
+        box-shadow: 
+          0 0 10px 2px var(--theme-color-soft),
+          0 0 25px 4px var(--theme-color);
+        animation: fade-in 0.3s ease-in-out;
+        pointer-events: none;
+      }
+       .glass-pane {
+        background-color: var(--pane-background);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--pane-border);
+      }
+      
+      .cinematic-btn-glow {
+        box-shadow: 0 0 12px 1px var(--theme-color-soft), inset 0 0 5px 0 rgba(255,255,255,0.2);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      .cinematic-btn-glow:hover {
+        box-shadow: 0 0 20px 2px var(--theme-color), inset 0 0 8px 1px rgba(255,255,255,0.3);
+        transform: scale(1.05);
+      }
+
+      /* Theming Utility Classes */
+      .bg-theme { background-color: var(--theme-color); }
+      .bg-theme-50 { background-color: rgba(var(--theme-color-rgb), 0.5); }
+      .text-theme { color: var(--theme-color); }
+      .text-theme-soft { color: var(--theme-color-soft); }
+      .border-theme { border-color: var(--theme-color); }
+      
+      .hover\:bg-theme:hover { background-color: var(--theme-color); }
+
+      .group:hover .group-hover-text-theme { color: var(--theme-color); }
+      
+      .hover-bg-theme-dark { transition: filter 0.2s ease-in-out; }
+      .hover-bg-theme-dark:hover { filter: brightness(0.9); }
+
+      .focus-ring-theme:focus { 
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--theme-color);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+        border-color: var(--theme-color);
+        outline: none;
+      }
+      .ring-theme { --tw-ring-color: var(--theme-color); }
+      .group:hover .group-hover-border-theme { border-color: var(--theme-color); }
+      .group-hover\:border-theme:hover { border-color: var(--theme-color); }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^18.2.0/",
+    "react": "https://aistudiocdn.com/react@^18.2.0",
+    "react-dom": "https://aistudiocdn.com/react-dom@^18.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@~0.1.3",
+    "appwrite": "https://aistudiocdn.com/appwrite@~15.0.0",
+    "react/": "https://aistudiocdn.com/react@^18.2.0/"
+  }
+}
+</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
